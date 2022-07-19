@@ -1,0 +1,59 @@
+﻿@model ProjetoMVC01.Models.ProdutoConsultaModel
+
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<h3>Consulta de Produtos</h3>
+<p>
+    Listagem de produtos cadastrados no sistema.
+</p>
+<hr />
+
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-secondary mb-2">
+        <strong>@TempData["Mensagem"]</strong>
+    </div>
+}
+
+
+<table id="tabela_dados" class="table table-sm">
+    <thead>
+        <tr>
+            <th>Nome do Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Data de Cadastro</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Produtos)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Preco.ToString("c")</td>
+                <td>@item.Quantidade</td>
+                <td>
+                    @item.DataCadastro.ToString("dd/MM/yyyy HH:mm")
+                </td>
+                <td>
+                    <a href="/Produto/Edicao?id=@item.IdProduto" class="btn btn-outline-primary btn-sm">Alterar</a>
+                    <a href="/Produto/Exclusao?id=@item.IdProduto" onclick=" return confirm('Deseja Excluir o Produto @item.Nome?');" class="btn btn-outline-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5">
+                Quantidade de registros: @Model.Produtos.Count
+            </td>
+        </tr>
+    </tfoot>
+</table>
+

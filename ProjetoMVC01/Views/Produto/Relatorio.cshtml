@@ -1,0 +1,51 @@
+﻿@model ProjetoMVC01.Models.ProdutoRelatorioModel
+
+@{
+    ViewData["Title"] = "Relatorio";
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<h3>Relatórios de Produtos</h3>
+<p>
+    Utilize o formulário para gerar o relatório desejado.
+</p>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <label>Informe a data de início do período:</label>
+    @Html.TextBoxFor(model => model.DataMin,
+           new { @class = "form-control", @type = "date" })
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.DataMin)
+    </div>
+    <br />
+
+    <label>Informe a data de fim do período:</label>
+    @Html.TextBoxFor(model => model.DataMax,
+        new { @class = "form-control", @type = "date" })
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.DataMax)
+    </div>
+    <br />
+
+    <label>Selecione o tipo do relatório:</label>
+    <div>
+        @Html.RadioButtonFor(model => model.TipoRelatorio, "pdf")
+        <span>Formato PDF</span>
+    </div>
+    <div>
+        @Html.RadioButtonFor(model => model.TipoRelatorio, "excel")
+        <span>Formato EXCEL</span>
+    </div>
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.TipoRelatorio)
+    </div>
+
+    <br />
+
+    <input type="submit" value="Gerar Relatório"
+           class="btn btn-outline-success" />
+}
+
+

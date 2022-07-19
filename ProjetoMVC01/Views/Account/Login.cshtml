@@ -1,0 +1,102 @@
+﻿@model ProjetoMVC01.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    @using (Html.BeginForm())
+    {
+        <div class="row mt-5">
+            <div class="col-md-4 offset-4">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAC0CAMAAAB4+cOfAAABmFBMVEX/zID/tk0AAAD////xvonFrINmZmZCQkLM1tuZmZn/uE/9nyn7igD/zoH7kA64m2+AgIDz9vfn7O7Z4eTmiV2srKz/
+                     0oT9yoC7nXD/ynl1dXXApnvctHj/1IX/7NHSrnVNTU3/2aLr6+tcXFzNt5b/v07ErIlGRkbh4eH/6MjNzc2cnJzKysrs7Oz/skAmMjyIiIj/+fAsLCz/vV3btHhVVVV8k5//3KzwuoHolGZwWTjDnGJqamo4ODhYX2jfq3iVWiTtq3n/8uHvv3hoUzShgVGye0m
+                     6uropIRSriFW4gEDeqmLQm1b/0Yz/59eyZDWNcUdSQimFakI6Lx3OeUvYmkEYEwzwq0g8KxL/w2z/xxN+ala8h0XGkmGQVBd2NQCkbDvro3PQm2jrxKOmbi7Amn68gDL617qtdkVqXUriuZIfGQ+WThe7aTvtrpL4yJb01MflgE9/RgCccDBTOxl/WybnzalvTyFNNx
+                     f/8cj/zT3/2Xb/5q7/4Zy/uKygk4AXJjRaTz2Wf1/GmFj9pEDZgybFfDGjckqjCG03AAARk0lEQVR4nO2di18aVxbHQSwWurMVI1AsGoVa0YGIGjcqKCgKChjUYKwJUINUsy0mrWnabbevZLfbf3vvYwbuvGAed3iov88nxpDxzNzvnHPuuY8ZLZY73elOd7rTne50pz
+                     vd6U7dEAPk8TBY3b6YnhACwVhypVIWqgSU93q6fVXdFuNhcvlczpevpKuJhsrJ7O1Gw3hS2Uq6XE5/WR4Uqnqb0TBMrnaWgBgSLwclqiZLlluZawCWZJqDkJRygWgq+VuYhj2pGo9lsJyWBTM4mE7mblc8gY65dLbCN3+lgv/efCFFc1a7PfEEO6JSpfq60fjkOf5+c3
+                     R0dVNMJlHJe24SGs+4bHoAUFL5WjJdJZpe++zx48fn4JvVUaRVIEE81VI3JJ5AAeuNre36eTI+3/4+quM83lw2eVZOCPPIV4DLY8ylUBjl4AicJpnvf5+BZX1q73AAaG3cAqFYpiYWbLOMB5S2Eigw8X61xXMpJquJl5U6giNMN+mat6/RACrM/YPdAU4e4CqPtmxQC
+                     xe1s7QECsqug5eX5zC/FOu4yFup1ouAzIrgqESF7J6mpgBv/py9HmYAyngqtj1A6APgKrxkoUBVUe+0eVUnaryzgthlBgdfZhtJy7dlW5jdx2w8e3sp+XTWG2LGLf6dJwNCOWxNXa4MKqh6lkynk8JKpposjIr7p3LN68H90z6yuPXI4gO345uBge2YpSc7LphUY0e7
+                     AxINEWC2FMHAQKlKPqrWR8U/kUjWsvkUYDDLG52Y8sXQmXYPUp7echsUQHvbUihIEYJMKzCysOoSnwEfll8maxfNALUt/JM/1+GeZbxn0IBixX8g4yq83ASYc41goM+sytL8mrDqIk935Pf0QEjBbjm29lSZCpCdaMJjrS4DfWb0hfSnVh4TVt3CE+7upMa72UvBbpk
+                     rVlrLRTi9ZjCgjy7KDRIILrZ1ySm3Y14jIXVqBIuHiR2IeyB5zRFteC3X9jY6KzQGCXz3vXJJ2AzJnhWGlL6m+ZasuqGAYmVNFRSoqKoOu4VAohGNEVaI1GsbVjjvE33FzanVqgsMcBVpsdJSi2o7bLGaQ4eKaOz0moykFqfejjHaMrHX57TqAMMw4/LFSmuFiFZocp
+                     UK/00CkWl8Lki9mZbn/gYWN+pbuGS1agaDcq1SsdJSmjts3lMSjdlO2Dk1nU0QScF2pz/c86pkc+q0agXj8Yz7VeZaqZa1dthpfmxQbZCp1okfPCcMBtRcwZp/vD0bH+cuqsGgXHukEwqS5g77TExmc/SqOZBa2SLAONRdwtO2xc2p1aoFTHNmxYDCmjvsND/MTlQSi
+                     MvoaL0xlhKk3kXVV3HYorjhkq5aMCDX3tcdQISGyQ4b3PEXoCSRzEMJVeaDCJDZxNOdfCoWFDFzWq7j6ZFfYeZmyWpVCwZPTRqHgkR22NykLhJf7MtM1FQr/IfJIj64eIbrX0HqjWu8ElTciN3l1GpVCQakFf+O0QAiRHbY33HNLFRgRQuL/XLlZUW6qJSo8LFzdoV/
+                     pHA1ugpQqi1ilLQdEwwzRVGkDAYXK60HhlrFEk15hahcF4qjxTpscSFZvbx8DTqiMrds0EjPZ3iac3O0zvkMqoC/+5Yw5m5/bjkdEG6zJMEiAwbPYusqVlpqkmjLt1f1ZPYat7RSqSerg2iB4CxZTqSTK3y6xSk4zSfeIudlEAzpMDN6r4gvbmTcRQrGA6t9igFEiJi
+                     tipRS3iTnAddoOf81ALOS/Bp8xRVdstH/lM9erDZ9Bf/1iuAiP35UqTU/w8i5ixAMyCoW2gFEKEO0Zp/JoXYWrwtcmf/6MXCTSwDmEpd2ycZ+kCJHhPu7mBz9jhwORI1d1e6bk+mWHoOmJs1xFU5xojWzPkCmcFWvNweGVdgVAzKD12U0I/4yzWWX0Stu9e0KpKMX56
+                     8K9SIZScZv5PcXVqdC8vWMe1tOTVLRU6I1Cz64pyxnwfEEixlc3668fp0sz16WX6IYAlhWua6Ii6IXl+fnhfwPhKXW40e1envsFLPBU5PbpgUQoeZs1cIsl+bzuMmrL9L1RlV3DsKpgn2Ir3W4xHtVL26+KuQ9msaPKvWFOKQsKZNyrVTc8tLWo/3G+iFTw00uFLiAS
+                     nwJipRLbrIh0SSDv/pK9XqO2SfABChe348XpNtYKFpuo0XoKlO+5qoqJFOqF4rF+jWfaq5Rb1S+wlO8Cb56QZ10Pe/xWODatW9/lmfD0r3Et8cNt+kgmIEf9gVQuLIply9Z8ngBf/PsDLkK8pTVTZBh+CCqZWtZYtXa55vaopR6Rfoiy4VUJ8HsyY7e4O5eTw0lm+KX
+                     aHEtna3VuXyL+nPkK+KlIh/zaEHb+FGtfjyGvVQnwawpzoYwIKSuisXrInSURA30B3nIpljPenOlbF5+w5DP9+tzcy4UFDfOToI5bDFN5IEEcI699lrQro5creT1oLUrJZxe8671+06CGWi5vxAQyMKUUk9xR7Wd3WdiZl6ribYFOtzxt51yZVKlWjKnfkaf8e5RmEO
+                     TV2fAbO+lPGr2Z8C40bQI5PH4TRrdmQ/m6RGcaDVt9wGcOjKjRDUZDAggFasWBgXGvzvUR3pmglmLeTu0UYWBIUX34s0C8+TA7+3oFhUQUlSnTUwBc4hybQep8GxSO9QyMX0wMNd2a6cXCCla6z10wYAA6hoUns04neKGIhhQrGjcimKSqBQ3lMDsggDqoR22sLgxuA
+                     JEA8yTnZ7YPyoULG6+6SaYtViq22lFQXCRWX9xYwjMk4P7jN6NkZ2Q17dkvfi+02AOUa7tSV/hBRcZnc6TN3rGC/rAgIFhrwZQU/zODqfTefxjJ8DAXNvVDelqJNzZ4Zw+yX5hLhhQrPS8q0BJluoBm7daihstYJ4c9eiTUhKdyq3Tg5C6UB9SqsEc7vR8ruXlU9jZgd
+                     zmjcqQUgcGFyt9QUW4KVXObY7f0gGze9AHubYhue10EjZqips2YLo0s6JfilEkYtO2uGkBZrdzU5O01DKKJCHVMhMrgQHFisWEAGLayJDx9lEkZDN9cqGciWXB4GLFDF/xP/T70R/45SH6htRDI7bVRZGIzfEbtWB2j2KMactA3o/byKvbsvooEqJRKm6EYMwuVryfmA
+                     RGuXRR4zZyxU0TzFNQrJida80Co9NdCL85Fo8XODCgWLF0YGYFgvn0AyXpBKOidFGDRlTcQDCHpuVaSRv0gPERkjNqIIqEbKbJ4sbS0WJFNZj9qakpyxSnRw2Bf+xbhICMRpEADeil+Ezc2eGyWjC+CZvNxpD7ecnd01sTj6YsGA6NKBKymbZe/AuB6ag0gbEogOG3Cw
+                     M2tKJIyMZ5/OZp/4IBmjh9YAYYXNz0A5jwnEChUIB/xGdrySQ0VmcfgHFNjjkkYt1ziI7PLDJ9AMYWtNuHpWgAHPjYhtckMn0Cxh6PsjJo3OaR6RcwCmhY06KpH8DYOY05pGhYl0lk+gkMTDUSNNBnzOi2+wFM3N4KDcwzJhR6/QBmjAAjk2oAmQX6LtN3YGTQhEGlR5
+                     1MH4IRZ2HWEbLZZmmTodvwdvP/lMAI0cSjDlAET1EmQ5eL/76iGP1ghqVgyCw8NBM3oZyhC+a+4mTuJ7TBNNCwM5MzQfhCI7pTM9TBfCoVAmPRDyYqD4bLwuzyJCAToJ2AqYORttc0MBgNG5wEZOCrnh7RJNMPYByKYBCasUlIBr5shOb8b7+DAR0UAjMJg4lmndcPY
+                     NiWYOx2BGYGvuiUYjXTw2B8HJiAco4hwEwuw57JdxvAWDGYuUg7j7EHl1H+pRpMfQDG5g62I4O8xu6m2TP1KJjZBhhXyOYaXuYUVNTy0NDQWIbiDERPgjl9IAADv7pckUgkABXixa2mhKEymYzb7c6ANDNByWV6EIxvySoBo1IBcLD3poKBVZoYTIDzjrZk6E3NdAGM
+                     oiAYvEovBjOMs8tkWzIhahMQnQfTUlzqJMF8ODIyEuVSbHiknWD+7U0wn0jVBGNpB8YqATPyoSa5Ryi5jG4I+1My+uEzReEDPm8jLxaqY7w27DH3gBz3Ru6p0UjYBao8Clx0g/HNKkQ5bUVgjnGxrrYHYqGNEDRcpj/AqBfK1TRc5qaBsaGOi4LLGACjMS1q1oguMOh
+                     19hTGkjcODC519g2TMQAGDmDMlM0AGOMuYwRMR6QPzE+GZ6wMgHG1LUONyaUbzMLPzwzPyxgAc69nc8y/nz37qYtgXKpqUf3S7TELzwAYg1xuZI6ZuAMjIwDmFwDmF6NTnDcRzK8QjNFVyZ4H42o/bScQBPPzzz//5LUaS7/mgImOjQ0jRZEyrY5tJzTpjR8nCAQCk
+                     XbD7CbHCUPRZAoYx/qMQOuOFgerl2OR0/pkPOoOB9qAMTb7awaYMOcuTY2xykerVnhxqKn19cX1oFvGfQgwhlayTQAzJ+ECY0rtTJOiXDNDYq0PhSWHATD3/oH1qQEuJoAJyXEB0ti7SBRdl4AZGlp0iw8jwOR6CkykGT9xKD4ND49p7F7EDeYCaWYZrmQHg5McGbH
+                     PEP82tClPLxgL8Wzrb25CUZ5Kc8F9jE80bm0SNHgZcZi083bj9mUUW+suJTDGFmt1gyEeh/5cGjxx4V4EhehqrTGyvRnoMDNBoV0IS9zjNf3S2GSVfjANMQ8lTZLs0tBDRgAGRs6M2Go8CINJCgaNQUPGtrdSAGNhUr/zDUcJstmAYHNnC7+Jw25vtryVhGCgw8iYh
+                     WTW3WIwH6LUGzPEhc5KJON5GMVNJbgEhx0gqbD8PrHlRh8b57nIdTONo5YFYJabZsdIs3HwH0GSC9zv4MoA/WaMC60lWob5/Hcg1HruST3W7XCwLGhFFH/QKEOWMcRhewsuyA7hBosyZu2c2UWyEAjxubhbo2spGg/DjL8HTjCJEuSY2+GeCwVCoYzDjbejBhst5lx
+                     msg0YInkA55KYZXmz62RZPceBMfzQGzUwCI5lhruzcbcjHAkE5oYjgRB/c2eabV6GbNpwIcBE1oVmQ2PgD8vyZslfpo07JQoPqlMFY2H8f6yjO8uCBsQDoXA4EHKHHO44kWXWsSaDrVKMEEwGHMqZzUTiIWSWDTTMLs65Fha2trYmJiZmP4PvDKHxjCRdMCDX3N9Ad
+                     5YF99QNpxzmMpGww9GMpaNpJ5LVOn3UGk0TzMb8PIok0qy7YXZ+fv34gUDGsdB/ws3zMbzYKAs83h2FT81EQVMcbuT081AnRHnxbl4GDfAm7pvo8Fjq9HRpKV8qlZ43zGaw2RA0i+KrVDqh/bIUM8C8xy4fyoRQAxzRcCjgxk5/fJwv5Yk2OE9O3syLubzb2dk5eDe
+                     PEZ1wBzqnd6ABR9OsIwPNwg83ZH4taC+DcTdaEA1zYE6c4t/f6bQOzQv1xzEKteOjd0BNT3BKzTo4sxsnZnAxD0wgwHtMJMLiUJK7s9Ni4YOAjwARBHmPaZjNRCK8x/QHmI+DOBkEIjgZOJo5xkALnLENZDbDm8WpC+WY6fY/rkO0wTA5vldyhDOg9wBZIRDGFcd7I
+                     2DkzOJe6Xk/eIz31Gnd4AqOEOg3YJHKcnXMRsxQC5BZB8ubDVAyqyiqXODLtHCatLsdGeDs9gDyeFyiGkqSpNlAkDBrUu6lCgYv/h1vcIMadg4+CZHhuRiJpIZZMCZgw/AJC1pmFUUPC/9KOu7egmEwCx+MZt3cY9MG76zzPSJjp2xWUdS4NIf5Tm7+cczBsqyDu/6
+                     NvNE7K2/2PyY5DCUwgrfpOk/sEm3sGW6ASWaVRAWL6MWOzpO4pAEUig2TzCrIIBP0mg/pr9PgEwJ3/fEclRsrMasYnhROZwzLf/+upD+f23EjNjbiWcWjNOvP96rMfmScjDEwH/1NWX//31/Pnz//K/tni2N0CJs9aG2262CWPupNPeguGJB0e1WGuRgBY87bdHtF+
+                     rnQfCdJD0onFSpvdu9p6QRzo6MISRcW2d8EdsOkA8vNTrq8dLhLty+5M9JI5eYnXV7auNyOKELSxOWWRBGSFne5LVGEpJ7L7YkipP8DJPNQMNYl9VgAAAAASUVORK5CYII=" />
+                            <br />
+                            <h5>Acesso ao Sistema</h5>
+                        </div>
+                        <hr />
+
+                        <label>Email de Acesso:</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        <br />
+
+                        <label>Senha de Acesso:</label>
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Senha)
+                        </div>
+                        <br />
+
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-outline-dark"
+                                   value="Acessar Sistema" />
+                        </div>
+
+                        @if (TempData["Mensagem"] != null)
+                        {
+                            <div class="alert alert-danger mt-3">
+                                <strong>@TempData["Mensagem"]</strong>
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<h3>Sistema para controle de produtos</h3>
+
+<hr />
+<div id="grafico"></div>
+
+
+@section scripts {
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script>
+        //função para acessar o método ObterDadosGrafico (JsonResult)
+        //da classe ProdutoController
+        $(document).ready(
+            function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Produto/ObterDadosGrafico',
+                    success: function (result) {
+
+                        var array = [];
+
+                        for (var i = 0; i < result.length; i++) {
+                            array.push([
+                                result[i].dataCadastro, result[i].total
+                            ]);
+                        }
+
+                        new Highcharts.Chart({
+                            chart: {
+                                type: 'pie',
+                                renderTo: 'grafico'
+                            },
+                            title: {
+                                text: 'Quantidade de produtos cadastrados por data'
+                                },
+                            subtitle: {
+                                text: 'Somatorio da quantidade de produtos'
+                            },
+                           
+                            series: [
+                                { data: array } //dados do gráfico..
+                            ]
+                        })
+                    }
+                })
+            }
+        )
+    </script>
+
+}
+
+

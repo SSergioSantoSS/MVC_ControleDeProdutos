@@ -1,0 +1,47 @@
+﻿@model ProjetoMVC01.Models.ProdutoCadastroModel
+
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<h3>Cadastro de Produto</h3>
+<p>
+    Preencha o formulário para incluir um produto.
+</p>
+<hr />
+
+
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-secondary mb-2">
+        <strong>@TempData["Mensagem"]</strong>
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <label>Nome do produto:</label>
+    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+    <br />
+
+    <label>Preço do produto:</label>
+    @Html.TextBoxFor(model => model.Preco, new { @class = "form-control" })
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.Preco)
+    </div>
+    <br />
+
+    <label>Quantidade do produto:</label>
+    @Html.TextBoxFor(model => model.Quantidade, new { @class = "form-control" })
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.Quantidade)
+    </div>
+    <br />
+
+    <input type="submit" value="Realizar Cadastro"
+           class="btn btn-outline-success" />
+}
